@@ -1,0 +1,15 @@
+id: bf865cb2-06dc-4a14-9b75-a8f106279242
+pipeline_type: WORKSPACE
+name: New Pipeline 2026-07-04 14:46
+libraries:
+  - glob:
+      include: /Workspace/Users/alviswhyi@gmail.com/New Pipeline 2026-07-04
+        14:46/transformations/**
+schema: default
+continuous: false
+development: false
+photon: true
+channel: CURRENT
+catalog: workspace
+serverless: true
+root_path: /Workspace/Users/alviswhyi@gmail.com/New Pipeline 2026-07-04 14:46
