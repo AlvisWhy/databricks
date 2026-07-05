@@ -24,11 +24,18 @@ jobs:
         run: |
           python -m pip --upgrade pip
           pip install -r requirements-pyspark.txt
+
+      - name: Build wheel into dist
+        run: |
+          python -m pip install --upgrade build
+          cd dab_project
+          python -m build --wheel --outdir ../dist
+
       - name: Run pytest & generate HTML report
         run: | 
-          pytets \
-            --disable-warning
-            --cov=./src\
+          pytest \
+            --disable-warning \
+            --cov=./src \
             --cov-report=html
             
       - name: Upload coverage HTML report
@@ -36,4 +43,10 @@ jobs:
         with:
           name: coverage-html
           path: htmlcov
+
+      - name: Upload built wheel
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-wheel
+          path: dist/*.whl
     
